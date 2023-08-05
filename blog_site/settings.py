@@ -58,10 +58,11 @@ ROOT_URLCONF = 'blog_site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [#AGREGAR TAMPLATES DE APPS EN ESTE FORNATO
-            #BASE_DIR / "templates_base/",
-            #BASE_DIR / "perfiles/templates/",
-            #BASE_DIR / "control_estudio/templates/",
+        'DIRS': [
+            BASE_DIR / "templates_base/",
+            BASE_DIR / "app_perfiles/templates/",
+            BASE_DIR / "app_blog/templates/",
+            BASE_DIR / "app_contacto/templates/"
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -123,7 +124,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
