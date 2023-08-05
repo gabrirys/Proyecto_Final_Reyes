@@ -21,7 +21,7 @@ class ArticuloCreateView(CreateView):
     model = Articulo
     form_class = ArticuloFormulario
     template_name = 'articulo_formulario.html'
-    success_url = reverse_lazy('articulo_exsitoso')
+    success_url = reverse_lazy('articulo_detail')
 
 class ArticuloUpdateView(UpdateView):
     model = Articulo

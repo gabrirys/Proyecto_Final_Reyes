@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if articulo %}Editar{% else %}Crear{% endif %} Artículo</title>
+</head>
+<body>
+    <h1>{% if articulo %}Editar{% else %}Crear{% endif %} Artículo</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="{% if articulo %}Actualizar{% else %}Guardar{% endif %}">
+    </form>
+</body>
+</html>

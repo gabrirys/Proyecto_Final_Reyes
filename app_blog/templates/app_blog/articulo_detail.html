@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ articulo.titulo }}</title>
+</head>
+<body>
+    <h1>{{ articulo.titulo }}</h1>
+    <h2>{{ articulo.subtitulo }}</h2>
+    <p>{{ articulo.contenido }}</p>
+    <p>Autor: {{ articulo.autor }}</p>
+    <p>Fecha de publicación: {{ articulo.fecha_publicacion }}</p>
+    {% if articulo.imagen %}
+        <img src="{{ articulo.imagen.url }}" alt="{{ articulo.titulo }}">
+    {% endif %}
+    <a href="{% url 'articulo_editar' articulo.pk %}">Editar artículo</a>
+    <a href="{% url 'articulo_eliminar' articulo.pk %}">Eliminar artículo</a>
+</body>
+</html>
