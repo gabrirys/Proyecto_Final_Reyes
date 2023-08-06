@@ -9,7 +9,7 @@ from django.contrib.auth.views import LogoutView
 # from django.contrib.auth.mixins import LoginRequiredMixin
 
 from django.views.generic import UpdateView
-from app_perfiles.forms import UserRegisterForm, UserUpdateForm, AvatarFormulario
+from app_perfiles.forms import UserRegisterForm, UserUpdateForm
 
 class CustomLogoutView(LogoutView):
    template_name = 'perfiles/logout.html'

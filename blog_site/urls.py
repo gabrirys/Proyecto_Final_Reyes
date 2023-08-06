@@ -23,7 +23,7 @@ from blog_site.views import inicio
 urlpatterns = [
     path('', inicio, name='inicio'),
     path('admin/', admin.site.urls),
-    path('perfiles/', include('app_perfiles.urls')),
+    # path('perfiles/', include('app_perfiles.urls')),
     path('blog/', include('app_blog.urls')),
-    path('contacto/', include('app_contacto.urls')),
+    # path('contacto/', include('app_contacto.urls')),
 ]
