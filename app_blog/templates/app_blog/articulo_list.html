@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Lista de Artículos</title>
-</head>
-<body>
-    <h1>Lista de Artículos</h1>
+{% extends "base.html" %}
+
+{% block title %}
+Proyecto Final-REYES- Noticias
+{% endblock title %}
+
+
+{% block titulo-página %}
+<h1>Lista de Artículos</h1>
     <ul>
         {% for articulo in articulos %}
             <li><a href="{% url 'articulo_detail' articulo.pk %}">{{ articulo.titulo }}</a></li>
         {% endfor %}
     </ul>
     <a href="{% url 'articulo_crear' %}">Crear nuevo artículo</a>
-</body>
-</html>
+{% endblock titulo-página %}
