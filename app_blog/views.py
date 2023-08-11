@@ -14,13 +14,13 @@ class ArticuloListView(ListView):
 
 class ArticuloDetailView(DetailView):
     model = Articulo
-    template_name = 'articulo_detail.html'
+    template_name = 'app_blog/articulo_detail.html'
     context_object_name = 'articulo'
 
 class ArticuloCreateView(CreateView):
     model = Articulo
     form_class = ArticuloFormulario
-    template_name = 'articulo_formulario.html'
+    template_name = 'app_blog/articulo_formulario.html'
     success_url = reverse_lazy('articulo_detail')
 
 class ArticuloUpdateView(UpdateView):

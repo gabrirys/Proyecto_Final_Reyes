@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Proyecto Final-REYES- Contacto
+{% endblock title %}
+
+
+{% block titulo-página %}
+<body>
+    <h1>Contacto</h1>
+    <span class="subheading"></span>
+    <form method="post">
+        {% csrf_token %}
+        {{ formulario.as_p }}
+        <input type="submit" value="Enviar" />
+    </form>
+</body>
+{% endblock titulo-página %}

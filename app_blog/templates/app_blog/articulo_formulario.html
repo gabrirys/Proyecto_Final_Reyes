@@ -1,5 +1,12 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Proyecto Final-REYES- Noticias
+{% endblock title %}
+
+
+{% block titulo-página %}
 <head>
     <title>{% if articulo %}Editar{% else %}Crear{% endif %} Artículo</title>
 </head>
@@ -11,4 +18,5 @@
         <input type="submit" value="{% if articulo %}Actualizar{% else %}Guardar{% endif %}">
     </form>
 </body>
-</html>
+{% endblock titulo-página %}
+
