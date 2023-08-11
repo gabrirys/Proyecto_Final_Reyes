@@ -33,6 +33,31 @@
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'articulo_lista' %}">Noticias</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'contactar' %}">Contacto</a></li>
                     </ul>
+                    <div>
+                        {% if user.is_authenticated %}
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div style="display: inline-flex;">
+                                    <span>{{ user.username }}</span>
+                                </div>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'editar_perfil' %}">Editar mis datos</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'agregar_avatar' %}">Agregar avatar</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'logout' %}"><strong>Cerrar Sesión</strong></a>
+                                </li>
+                            </ul>
+                        </div>
+                        {% else %}
+                        <a class="btn btn-primary" href="{% url 'login' %}">Inicio sesión</a>
+                        <a class="btn btn-success" href="{% url 'registro' %}">Registro</a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </nav>

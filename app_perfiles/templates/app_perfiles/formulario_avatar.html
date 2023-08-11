@@ -7,9 +7,10 @@ Proyecto Final-REYES- Perfiles
 
 
 {% block titulo-página %}
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Iniciar Sesión" />
-   </form>
+<h3>Subir tu Avatar</h3>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Subir imagen"/>
+</form>
 {% endblock titulo-página %}
