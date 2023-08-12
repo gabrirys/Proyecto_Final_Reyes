@@ -24,6 +24,7 @@ class ArticuloCreateView(LoginRequiredMixin, CreateView):
     model = Articulo
     form_class = ArticuloFormulario
     template_name = 'app_blog/articulo_formulario.html'
+    login_url = reverse_lazy('login')
     
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -35,16 +36,18 @@ class ArticuloCreateView(LoginRequiredMixin, CreateView):
 class ArticuloUpdateView(LoginRequiredMixin, UpdateView):
     model = Articulo
     form_class = ArticuloFormulario
-    template_name = 'articulo_formulario.html'
+    template_name = 'app_blog/articulo_formulario.html'
     context_object_name = 'articulo'
     success_url = reverse_lazy('articulo_lista')
+    login_url = reverse_lazy('login')
 
 
 class ArticuloDeleteView(LoginRequiredMixin, DeleteView):
     model = Articulo
-    template_name = 'articulo_confirm_delete.html'
+    template_name = 'app_blog/articulo_confirm_delete.html'
     context_object_name = 'articulo'
     success_url = reverse_lazy('articulo_lista')
+    login_url = reverse_lazy('login')
 
 
 

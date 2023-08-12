@@ -1,5 +1,11 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Proyecto Final-REYES- Noticias
+{% endblock title %}
+
+{% block titulo-página %}
 <head>
     <title>Confirmar Eliminación</title>
 </head>
@@ -9,6 +15,6 @@
         {% csrf_token %}
         <input type="submit" value="Eliminar">
     </form>
-    <a href="{% url 'articulo_list' %}">Cancelar</a>
+    <a href="{% url 'articulo_lista' %}">Cancelar</a>
 </body>
-</html>
+{% endblock titulo-página %}

@@ -1,5 +1,11 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Proyecto Final-REYES- Noticias
+{% endblock title %}
+
+{% block titulo-página %}
 <head>
     <title>{{ articulo.titulo }}</title>
 </head>
@@ -12,7 +18,9 @@
     {% if articulo.imagen %}
         <img src="{{ articulo.imagen.url }}" alt="{{ articulo.titulo }}">
     {% endif %}
-    <a href="{% url 'articulo_editar' articulo.pk %}">Editar artículo</a>
-    <a href="{% url 'articulo_eliminar' articulo.pk %}">Eliminar artículo</a>
+    <div>
+        <a href="{% url 'articulo_editar' articulo.pk %}">Editar artículo</a>
+        <a href="{% url 'articulo_eliminar' articulo.pk %}">Eliminar artículo</a>
+    </div>
 </body>
-</html>
+{% endblock titulo-página %}
