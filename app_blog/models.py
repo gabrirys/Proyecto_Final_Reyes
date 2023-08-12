@@ -7,7 +7,7 @@ class Articulo(models.Model):
     contenido = models.TextField(blank=True)
     fecha_publicado = models.DateTimeField(auto_now_add=True)
     autor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='articulos_creados', null=True)
-    imagen = models.ImageField(upload_to='blog_images/', null=True, blank=True) # imagen
+    imagen = models.ImageField(upload_to='images_blog/', null=True, blank=True) # imagen
     
     
     def __str__(self):
