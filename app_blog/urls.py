@@ -9,7 +9,7 @@ from .views import (
 
 urlpatterns = [
     path('', ArticuloListView.as_view(), name='articulo_lista'),
-    path('articulo/<int:pk>/', ArticuloDetailView.as_view(), name='articulo_detail'),
+    path('page<int:pk>/', ArticuloDetailView.as_view(), name='articulo_detail'),
     path('crear-articulo/', ArticuloCreateView.as_view(), name='articulo_crear'),
     path('editar-articulo/<int:pk>/', ArticuloUpdateView.as_view(), name='articulo_editar'),
     path('eliminar-articulo/<int:pk>/', ArticuloDeleteView.as_view(), name='articulo_eliminar'),
