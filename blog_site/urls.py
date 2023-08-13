@@ -21,6 +21,9 @@ from blog_site.views import inicio, about
 from django.conf import settings
 from django.conf.urls.static import static 
 
+from ckeditor_uploader import views as ckeditor_views # importar ckeditor
+
+
 
 
 urlpatterns = [
@@ -29,8 +32,8 @@ urlpatterns = [
     path ('about/', about, name='acerca_de_mi'),
     path('accounts/', include('app_perfiles.urls')),
     path('pages/', include('app_blog.urls')),
-    path('contacto/', include('app_contacto.urls')),   
+    path('contacto/', include('app_contacto.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),  
 ]
-
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
