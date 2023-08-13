@@ -5,16 +5,26 @@
 Proyecto Final-REYES- Noticias
 {% endblock title %}
 
-{% block titulo-página %}
-<head>
-    <title>Confirmar Eliminación</title>
-</head>
-<body>
-    <h1>¿Estás seguro de que deseas eliminar el artículo "{{ articulo.titulo }}"?</h1>
-    <form method="post">
-        {% csrf_token %}
-        <input type="submit" value="Eliminar">
-    </form>
-    <a href="{% url 'articulo_lista' %}">Cancelar</a>
-</body>
-{% endblock titulo-página %}
+{% block titulo-imagen %}
+<header class="masthead" style="background-image: url('/static/assets/img/post-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <head>
+                        <title>Confirmar Eliminación</title>
+                    </head>
+                    <body>
+                        <h1>¿Estás seguro de que deseas eliminar el artículo "{{ articulo.titulo }}"?</h1>
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="Eliminar">
+                        </form>
+                        <a href="{% url 'articulo_lista' %}">Cancelar</a>
+                    </body>   
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock titulo-imagen %}

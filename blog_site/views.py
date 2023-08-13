@@ -9,3 +9,11 @@ def inicio(request):
         context={}
         )
     return httpResponse
+    
+def about(request):
+    httpResponse = render(
+        request=request,
+        template_name="about.html",
+        context={}
+        )
+    return httpResponse

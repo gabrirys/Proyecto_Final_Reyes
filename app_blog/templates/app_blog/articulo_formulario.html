@@ -5,18 +5,26 @@
 Proyecto Final-REYES- Noticias
 {% endblock title %}
 
-
-{% block titulo-página %}
-<head>
-    <title>{% if articulo %}Editar{% else %}Crear{% endif %} Artículo</title>
-</head>
-<body>
-    <h1>{% if articulo %}Editar{% else %}Crear{% endif %} Artículo</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="{% if articulo %}Actualizar{% else %}Guardar{% endif %}">
-    </form>
-</body>
-{% endblock titulo-página %}
-
+{% block titulo-imagen %}
+<header class="masthead" style="background-image: url('/static/assets/img/post-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <head>
+                        <title>{% if articulo %}Editar{% else %}Crear{% endif %} Artículo</title>
+                    </head>
+                    <body>
+                        <h1>{% if articulo %}Editar{% else %}Crear{% endif %} Artículo</h1>
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="submit" value="{% if articulo %}Actualizar{% else %}Guardar{% endif %}">
+                        </form>
+                    </body>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock titulo-imagen %}

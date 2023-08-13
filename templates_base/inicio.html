@@ -1,22 +1,32 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
 Proyecto Final-REYES
 {% endblock title %}
 
-
-{% block titulo-página %}
-{% if user.is_authenticated %}
-  <h1>Bienvenido {{ user.get_short_name }}!</h1>
-  <span class="subheading">Es hora de crear publicaciones</span>
-<div>
-  <img src="{{ user.avatar.imagen.url }}" style="max-width: 300px;">
-</div>
-{% else %}
-  <h1>Desinteligencia Natural</h1>
-  <span class="subheading">Navegando el Puente entre lo Humano y lo Digital</span>
-{% endif %}
-{% endblock titulo-página %}
+{% block titulo-imagen %}
+<header class="masthead" style="background-image: url('/static/assets/img/home-bg.jpg')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                  {% if user.is_authenticated %}
+                  <h1>Bienvenido {{ user.get_short_name }}!</h1>
+                  <span class="subheading">Es hora de crear publicaciones</span>
+                <div>
+                  <img src="{{ user.avatar.imagen.url }}" style="max-width: 300px;">
+                </div>
+                {% else %}
+                  <h1>Desinteligencia Natural</h1>
+                  <span class="subheading">Navegando el Puente entre lo Humano y lo Digital</span>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock titulo-imagen %}
 
 
 {% block contenido %}
