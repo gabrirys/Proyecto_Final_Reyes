@@ -13,13 +13,12 @@ Proyecto Final-REYES- Perfiles
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
                   <p>Tu username es <b>{{ object.username }}</b></p>
-
                   <h3>Editar datos:</h3>
                   <form method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <input type="submit" value="Salvar"/>
-                  </form>>
+                    <input type="submit" value="Guardar"/>
+                  </form>
                 </div>
             </div>
         </div>

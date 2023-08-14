@@ -14,7 +14,7 @@ Proyecto Final-REYES- Noticias
                     <h1>{{ articulo.titulo }}</h1>
                     <h2 class="subheading">{{ articulo.subtitulo }}</h2>
                     <span class="meta">    
-                        Autor: {{ articulo.autor }} - Fecha de publicación: {{ articulo.fecha_publicado }}</p>
+                        Autor: {{ articulo.autor }} - Fecha de publicación: {{ articulo.fecha_publicado }}
                     </span>
                     <div>
                         <a href="{% url 'articulo_editar' articulo.pk %}">Editar artículo</a>
@@ -31,12 +31,15 @@ Proyecto Final-REYES- Noticias
 <article class="mb-4">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <p>{{ articulo.contenido }}</p>
+            <div class="col-md-10 col-lg-8 col-xl-7" style="max-width: 778px;"> 
                 {% if articulo.imagen %}
-                    <img class="img-fluid" src="{{ articulo.imagen.url }}" alt="{{ articulo.titulo }}"></a>
-                    <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
+                    <img class="img-fluid" src="{{ articulo.imagen.url }}" alt="{{ articulo.titulo }}" style="width: 100%; height: auto;"></a>
+                    <span class="caption text-muted"></span>
                 {% endif %}
+                <div>
+                    {{ articulo.contenido|safe }}
+                </div>
+                
             </div>
         </div>
     </div>
