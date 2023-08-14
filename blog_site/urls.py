@@ -21,11 +21,6 @@ from blog_site.views import inicio, about
 from django.conf import settings
 from django.conf.urls.static import static 
 
-from ckeditor_uploader import views as ckeditor_views # importar ckeditor
-
-
-
-
 urlpatterns = [
     path('', inicio, name='inicio'),
     path('admin/', admin.site.urls),
