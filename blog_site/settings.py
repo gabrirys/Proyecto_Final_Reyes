@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "app_blog",
     "app_contacto",
     "app_perfiles",
+    "app_chat",
     "ckeditor",
     "ckeditor_uploader",
 ]
