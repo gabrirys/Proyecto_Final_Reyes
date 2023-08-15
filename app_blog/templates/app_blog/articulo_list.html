@@ -44,10 +44,10 @@ Proyecto Final-REYES- Noticias
                    Autor: {{ articulo.autor }} - Fecha de publicación: {{ articulo.fecha_publicado }}
               </p>
           </div>
+          <!-- Pager-->
+          <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{% url 'articulo_detail' articulo.pk %}">Leer más →</a></div>
           <!-- Divider-->
           <hr class="my-4" />
-          <!-- Pager-->
-          <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
       </div>
   </div>
 </div>

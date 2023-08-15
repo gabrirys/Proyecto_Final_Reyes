@@ -34,7 +34,7 @@ Proyecto Final-REYES- Noticias
             <div class="col-md-10 col-lg-8 col-xl-7" style="max-width: 778px;"> 
                 {% if articulo.imagen %}
                     <img class="img-fluid" src="{{ articulo.imagen.url }}" alt="{{ articulo.titulo }}" style="width: 100%; height: auto;"></a>
-                    <span class="caption text-muted"></span>
+                    <span class="caption text-muted">{{ articulo.pie_imagen }}</span>
                 {% endif %}
                 <div>
                     {{ articulo.contenido|safe }}
