@@ -14,13 +14,13 @@ Proyecto Final-REYES- Noticias
                     <h1>Artículos disponibles</h1>
                     <ul>
                         {% for articulo in articulos %}
-                            <li><a href="{% url 'articulo_detail' articulo.pk %}">{{ articulo.titulo }}</a></li>
+                            <li><a href="{% url 'articulo_detail' articulo.pk %} " class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">{{ articulo.titulo }}</a></li>
                         {% endfor %}
                     </ul>
                     {% else %}
                         <h1>No hay entradas aún</h1>
                     {% endif %}
-                    <a href="{% url 'articulo_crear' %}">Crear nuevo artículo</a>
+                    <div><a type="button" class="btn btn-outline-light" href="{% url 'articulo_crear' %}">Crear nuevo artículo</a></div>
                 </div>
             </div>
         </div>
