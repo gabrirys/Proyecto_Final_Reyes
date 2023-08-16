@@ -11,17 +11,7 @@ Proyecto Final-REYES- Noticias
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
-                    <head>
-                        <title>{% if articulo %}Editar{% else %}Crear{% endif %} Artículo</title>
-                    </head>
-                    <body>
-                        <h1>{% if articulo %}Editar{% else %}Crear{% endif %} Artículo</h1>
-                        <form method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            {{ form.as_p }}
-                            <input type="submit" value="{% if articulo %}Actualizar{% else %}Guardar{% endif %}">
-                        </form>
-                    </body>
+                    <h1>{% if articulo %}Edita tu{% else %}Crea tu{% endif %} Artículo</h1>  
                 </div>
             </div>
         </div>
@@ -30,4 +20,17 @@ Proyecto Final-REYES- Noticias
 {% endblock titulo-imagen %}
 
 {% block contenido %}
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7" style="max-width: 778px;"> 
+            <div class="form-floating">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="d-flex justify-content-end mb-4"><input class="btn btn-primary text-uppercase" type="submit" value="{% if articulo %}Actualizar{% else %}Guardar{% endif %}">
+                </form>
+            </div>  
+        </div>
+    </div> 
+</div>  
 {% endblock contenido %}
