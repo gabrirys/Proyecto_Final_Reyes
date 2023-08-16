@@ -13,9 +13,11 @@ Proyecto Final-REYES
                 <div class="site-heading">
                   {% if user.is_authenticated %}
                   <h1>Bienvenido {{ user.get_short_name }}!</h1>
-                  <span class="subheading">Es hora de crear publicaciones</span>
-                <div>
-                  <img src="{{ user.avatar.imagen.url }}" style="max-width: 300px;">
+                  <div>
+                    <span><a class="subheading" href="{% url 'articulo_lista' %}">Es hora de crear publicaciones</a></span>
+                  <div> 
+                    <img src="{{ user.avatar.imagen.url }}" style="max-width: 300px;">
+                  </div>   
                 </div>
                 {% else %}
                   <h1>Desinteligencia Natural</h1>

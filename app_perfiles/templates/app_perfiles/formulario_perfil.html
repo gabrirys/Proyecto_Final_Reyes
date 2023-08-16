@@ -12,16 +12,28 @@ Proyecto Final-REYES- Perfiles
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
-                  <p>Tu username es <b>{{ object.username }}</b></p>
-                  <h3>Editar datos:</h3>
-                  <form method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <input type="submit" value="Guardar"/>
-                  </form>
+                  <h1>Tu username es <b>"{{ object.username }}"</b></h1>
+                  <h2 class="subheading">Editar tus datos</h2>
                 </div>
             </div>
         </div>
     </div>
 </header>
 {% endblock titulo-imagen %}
+
+{% block contenido %}
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7" style="max-width: 778px;"> 
+        <div class="form-floating">
+          <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="d-flex justify-content-end mb-4"><input class="btn btn-primary text-uppercase" type="submit" value="Guardar"/></div>
+          </form>
+        </div>
+      </div>  
+    </div>
+  </div> 
+</div>  
+{% endblock contenido %}

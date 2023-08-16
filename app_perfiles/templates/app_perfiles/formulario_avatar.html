@@ -12,11 +12,11 @@ Proyecto Final-REYES- Perfiles
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
-                  <h3>Subir tu Avatar</h3>
-                  <form method="post" enctype="multipart/form-data">
+                  <h1>Carga tu Avatar</h1>
+                  <form class="subheading" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <input type="submit" value="Subir imagen"/>
+                    <input class="btn btn-outline-light" type="submit" value="Subir imagen"/>
                   </form>
                 </div>
             </div>
