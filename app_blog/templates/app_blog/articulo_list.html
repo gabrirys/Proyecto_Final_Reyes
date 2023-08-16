@@ -11,14 +11,11 @@ Proyecto Final-REYES- Noticias
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
                     {% if articulos %}
-                    <h1>Artículos disponibles</h1>
-                    <ul>
-                        {% for articulo in articulos %}
-                            <li><a href="{% url 'articulo_detail' articulo.pk %} " class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">{{ articulo.titulo }}</a></li>
-                        {% endfor %}
-                    </ul>
+                        <h1>Artículos disponibles</h1>
+                        <span class="subheading">Todos ellos solo para ti. Pero falta el tuyo!</span>
                     {% else %}
                         <h1>No hay entradas aún</h1>
+                        <span class="subheading">Te estamos esperando. Escribe tu primer artículo.</span>
                     {% endif %}
                     <div><a type="button" class="btn btn-outline-light" href="{% url 'articulo_crear' %}">Crear nuevo artículo</a></div>
                 </div>

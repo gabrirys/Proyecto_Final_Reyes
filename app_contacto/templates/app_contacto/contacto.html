@@ -13,10 +13,11 @@ Proyecto Final-REYES- Contacto
                 <div class="site-heading">
                     <h1>Contacto</h1>
                     <span class="subheading"></span>
-                    <form method="post">
-                        {% csrf_token %}
-                        {{ formulario.as_p }}
-                        <input type="submit" value="Enviar" />
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ formulario.as_p }}
+                            <input class="btn btn-outline-light" type="submit" value="Enviar" />
+                        </div>     
                     </form>
                 </div>
             </div>
