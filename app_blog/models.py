@@ -11,7 +11,7 @@ class Articulo(models.Model):
     fecha_publicado = models.DateTimeField()
     autor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='articulos_creados', null=True)
     imagen = models.ImageField(upload_to='images_blog/', null=True, blank=True) # imagen
-    # pie_imagen = models.CharField(max_length=300)
+    pie_imagen = models.CharField(max_length=300)
     
     def __str__(self):
         return f"{self.titulo} - {self.autor} -" 
