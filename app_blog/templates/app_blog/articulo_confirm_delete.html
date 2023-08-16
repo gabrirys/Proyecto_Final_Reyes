@@ -12,8 +12,9 @@ Proyecto Final-REYES- Noticias
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
                     <body>
-                        <h1>¿Estás seguro de que deseas eliminar el artículo "{{ articulo.titulo }}"?</h1>
-                        <form method="post">
+                        <h1>¿Estás seguro de que deseas eliminar este artículo?</h1>
+                        <span class="subheading">"{{ articulo.titulo }}"</span>
+                        <form class="p-4" method="post">
                             {% csrf_token %}
                             <input class="btn btn-outline-light" type="submit" value="Eliminar">
                             <a type="button" class="btn btn-outline-light" href="{% url 'articulo_lista' %}">Cancelar</a>

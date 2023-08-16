@@ -16,7 +16,7 @@ Proyecto Final-REYES- Noticias
                     <span class="meta">    
                         Autor: {{ articulo.autor }} - Fecha de publicación: {{ articulo.fecha_publicado }}
                     </span>
-                    <div>
+                    <div class="p-4">
                         <a type="button" class="btn btn-outline-light" href="{% url 'articulo_editar' articulo.pk %}">Editar artículo</a>
                         <a type="button" class="btn btn-outline-light" href="{% url 'articulo_eliminar' articulo.pk %}">Eliminar artículo</a>
                     </div>
