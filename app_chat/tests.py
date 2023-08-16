@@ -14,22 +14,35 @@ class ThreadTestCase(TestCase):
     def setUp(self):
         self.u1 = User.objects.create_user('u1', None, '1234')
         self.u2 = User.objects.create_user('u2', None, '1234')
+        self.u3 = User.objects.create_user('u3', None, '1234')
         
         self.thread = Thread.objects.create()
         self.thread.user.add(self.u1, self.u2)
     
+    
     def test_add_user_to_thread(self): # Comprobar si el hilo tiene dos usuarios
         self.thread.user.add(self.u1, self.u2)
         self.assertEqual(len(self.thread.user.all()), 2) 
+        
         
     def test_filter_threads_by_user(self): # Recuperar un hilo ya existente a partir de sus usuarios
         self.thread.user.add(self.u1, self.u2)
         threads = Thread.objects.filter(user=self.u1).filter(user=self.u2)
         self.assertEqual(self.thread, threads[0])
         
+        
     def test_add_message_to_thread(self): # Crear mensajes
         self.thread.user.add(self.u1, self.u2)
         msg1 = Message.objects.create(user= self.u1, content= "Como va")
         msg2 = Message.objects.create(user= self.u2, content= "Todo viento")
         self.thread.message.add(msg1, msg2)
+        self.assertEqual(len(self.thread.message.all()), 2)
+        
+        
+    def test_add_message_from_user_not_in_thread(self):
+        self.thread.user.add(self.u1, self.u2)
+        msg1 = Message.objects.create(user= self.u1, content= "Como va")
+        msg2 = Message.objects.create(user= self.u2, content= "Todo viento")
+        msg3 = Message.objects.create(user= self.u3, content= "El espía")
+        self.thread.message.add(msg1, msg2, msg3)
         self.assertEqual(len(self.thread.message.all()), 2)
