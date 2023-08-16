@@ -46,3 +46,21 @@ class ThreadTestCase(TestCase):
         msg3 = Message.objects.create(user= self.u3, content= "El espía")
         self.thread.message.add(msg1, msg2, msg3)
         self.assertEqual(len(self.thread.message.all()), 2)
+        
+        
+    def test_find_thread_with_custom_manager(self):
+        self.thread.user.add(self.u1, self.u2)
+        thread = Thread.objects.find(self.u1, self.u2)
+        self.assertEqual(self.thread, thread)
+        thread = Thread.objects.find(self.u1, self.u3)
+        self.assertEqual(None, thread)
+        
+    
+    def test_find_or_create_thread_with_custom_manager(self):
+        self.thread.user.add(self.u1, self.u2)
+        thread = Thread.objects.find_or_create(self.u1, self.u2)
+        self.assertEqual(self.thread, thread)
+        thread = Thread.objects.find_or_create(self.u1, self.u3)
+        self.assertIsNotNone(thread)
+        
+        

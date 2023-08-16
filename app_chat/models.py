@@ -3,6 +3,22 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import m2m_changed
 
+
+class ThreadManager(models.Manager):
+    def find(self, user1, user2):
+        querySet = self.filter(user=user1).filter(user=user2)
+        if len(querySet) > 0:
+            return querySet[0]
+        return None
+        
+    def find_or_create(self, user1, user2):
+        thread = self.find(user1, user2)
+        if thread is None:
+            thread = Thread.objects.create()
+            thread.user.add(user1, user2)
+        return thread
+        
+        
 class Message(models.Model): # Mensaje
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
@@ -14,6 +30,7 @@ class Message(models.Model): # Mensaje
 class Thread(models.Model): # Hilo
     user = models.ManyToManyField(User, related_name='threads')
     message = models.ManyToManyField(Message)
+    objects = ThreadManager()
     
     
 def messages_changed(sender, **kwargs):
@@ -32,4 +49,9 @@ def messages_changed(sender, **kwargs):
         
         pk_set.difference_update(false_pk_set)
     
+    
 m2m_changed.connect(messages_changed, sender=Thread.message.through)
+
+
+    
+    
