@@ -30,7 +30,7 @@ pip install -r requirements.txt
 
 La web ademas de contar con una "Home" inicial, una página "Acerca de mi", una página "Contacto" para dejar conultas y sugerencias, nos permite acceder a una lista de articulos creados para su lectura (Blog)
 
-Además, nos permite el registro de usuarios por medio de un formulario accediendo a la posibilidad de crear, editar y eliminar (articulos creados por el propio usuario), con un editor de texto avanzado y añadir incluso imagenes. 
+También, nos permite el registro de usuarios por medio de un formulario accediendo a la posibilidad de crear, editar y eliminar (articulos creados por el propio usuario), con un editor de texto avanzado y añadir incluso imagenes. 
 
 
 ## Instrucciones acceder al panel aministrativo de Django
