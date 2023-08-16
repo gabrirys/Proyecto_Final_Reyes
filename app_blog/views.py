@@ -38,7 +38,11 @@ class ArticuloUpdateView(LoginRequiredMixin, UpdateView):
     form_class = ArticuloFormulario
     template_name = 'app_blog/articulo_formulario.html'
     context_object_name = 'articulo'
-    success_url = reverse_lazy('articulo_lista')
+    
+    # Redirigirme al detail del articulo editado
+    def get_success_url(self):
+        return reverse('articulo_detail', kwargs={'pk': self.object.pk})
+        
     login_url = reverse_lazy('login')
 
 
