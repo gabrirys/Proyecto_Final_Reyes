@@ -27,4 +27,9 @@ class ThreadTestCase(TestCase):
         threads = Thread.objects.filter(user=self.u1).filter(user=self.u2)
         self.assertEqual(self.thread, threads[0])
         
-        
+    def test_add_message_to_thread(self): # Crear mensajes
+        self.thread.user.add(self.u1, self.u2)
+        msg1 = Message.objects.create(user= self.u1, content= "Como va")
+        msg2 = Message.objects.create(user= self.u2, content= "Todo viento")
+        self.thread.message.add(msg1, msg2)
+        self.assertEqual(len(self.thread.message.all()), 2)
