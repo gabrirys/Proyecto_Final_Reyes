@@ -8,9 +8,24 @@ from django.views.generic import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
+class CanalDetailView(LoginRequiredMixin, DetailView):
+	template_name= 'app_chat/canal_detail.html'
+	queryset = Canal.objects.all()
+
+	def get_context_data(self, *args, **kwargs):
+		context = super().get_context_data(*args, **kwargs)
+
+		obj = context['object']
+		print(obj)
+
+		context['si_canal_miembro'] = self.request.user in obj.usuarios.all()
+
+		return context
+
+
 class DetailMs(LoginRequiredMixin, DetailView):
 
-    template_name = 'canal_detail.html'
+    template_name = 'app_chat/canal_detail.html'
     
     def get_object(self, *args, **kwargs):
         username = self.kwargs.get("username")
