@@ -11,6 +11,7 @@ from django.http import Http404
 
 @method_decorator(login_required, name='dispatch')
 class ThreadListView(ListView): # Utilizaremos una templateview
+    model = Thread
     template_name = "app_chat/thread_list.html"
 
 # Esta es otra manera de hacerlo

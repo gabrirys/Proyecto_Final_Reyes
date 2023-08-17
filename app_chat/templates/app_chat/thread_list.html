@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block titulo-imagen %}
+  <h1>Lista de Hilos</h1>
+  <ul>
+    {% for thread in object_list %}
+      <li><a href="{% url 'app_chat:detail' thread.pk %}">{{ thread }}</a></li>
+    {% empty %}
+      <li>No hay hilos disponibles.</li>
+    {% endfor %}
+  </ul>
+{% endblock titulo-imagen %}
