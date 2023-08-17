@@ -39,4 +39,4 @@ class CanalTestCase(TestCase):
         self.assertEqual(qs.count(), 2)
         solo_dos = qs.solo_dos()
         self.assertEqual(solo_dos.count(), 1)
-        
+    
