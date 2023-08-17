@@ -4,9 +4,19 @@ from django.http import HttpResponse, Http404, JsonResponse
 from django.core.exceptions import PermissionDenied
 from django.views.generic import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
-
 from .forms import FormMensajes
 from django.views.generic.edit import FormMixin
+from django.views.generic import View
+
+
+class Inbox(View):
+	def get(self, request):
+		inbox = Canal.objects.filter(canalusuario__usuario__in=[request.user.id])
+		context = {
+			"inbox":inbox
+		}
+		return render(request, 'inbox.html', context)
+
 
 class CanalFormMixin(FormMixin):
 	form_class =FormMensajes
@@ -28,7 +38,6 @@ class CanalFormMixin(FormMixin):
 			canal_obj = CanalMensaje.objects.create(canal=canal, usuario=usuario, texto=mensaje)
 			if request.is_ajax():
 				return JsonResponse({
-
 					'mensaje':canal_obj.texto,
 					'username':canal_obj.usuario.username
 					}, status=201)
@@ -39,22 +48,19 @@ class CanalFormMixin(FormMixin):
 			return super().form_invalid(form)
 
 
-class CanalDetailView(LoginRequiredMixin, DetailView):
+class CanalDetailView(LoginRequiredMixin, DetailView, CanalFormMixin):
 	template_name= 'app_chat/canal_detail.html'
 	queryset = Canal.objects.all()
 
 	def get_context_data(self, *args, **kwargs):
 		context = super().get_context_data(*args, **kwargs)
-
 		obj = context['object']
 		print(obj)
-
 		context['si_canal_miembro'] = self.request.user in obj.usuarios.all()
-
 		return context
 
 
-class DetailMs(LoginRequiredMixin, DetailView):
+class DetailMs(LoginRequiredMixin, DetailView, CanalFormMixin):
 
     template_name = 'app_chat/canal_detail.html'
     
@@ -62,10 +68,8 @@ class DetailMs(LoginRequiredMixin, DetailView):
         username = self.kwargs.get("username")
         mi_username = self.request.user.username
         canal, _ = Canal.objects.obtener_o_crear_canal_ms(mi_username, username)
-        
         if username == mi_username:
             mi_canal, _ = Canal.objects.obtener_o_crear_canal_usuario_actual(self.request.user)
-
         return mi_canal
         
         if canal == None:
