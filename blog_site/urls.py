@@ -21,7 +21,6 @@ from blog_site.views import inicio, about
 from django.conf import settings
 from django.conf.urls.static import static 
 
-from app_chat.urls import app_chat_patterns
 
 
 urlpatterns = [
@@ -31,7 +30,7 @@ urlpatterns = [
     path('accounts/', include('app_perfiles.urls')),
     path('pages/', include('app_blog.urls')),
     path('contacto/', include('app_contacto.urls')),
-    path('messages/', include(app_chat_patterns)),
+    # path('messages/', include('')),
     path('ckeditor/', include('ckeditor_uploader.urls')),  
 ]
 
