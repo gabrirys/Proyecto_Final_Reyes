@@ -9,7 +9,7 @@
 
 ## Descripción de proyecto
 El proyecto final consistía en desarrollar una una aplicación web estilo blog programada en Python y Django. 
-Para su creación se utilizaron todos los conceptos trabajados en el curso. Se crearon 4 módulos (app_blog, app_perfiles, app_contacto, app_chat), creación de formularios utilizando la API form de Django, modalidad de herencias para las plantillas e integración con PostgreSQL para la base de datos.
+Para su creación se utilizaron todos los conceptos trabajados en el curso. Se crearon 3 módulos (app_blog, app_perfiles, app_contacto3), creación de formularios utilizando la API form de Django, modalidad de herencias para las plantillas e integración con PostgreSQL para la base de datos.
 
 
 
