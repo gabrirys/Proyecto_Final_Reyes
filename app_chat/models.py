@@ -32,12 +32,18 @@ class CanalQuerySet(models.QuerySet):
     
     def solo_dos(self):
         return self.annotate(num_usuarios=Count("usuarios")).filter(num_usuarios=2)
+        
+    def filtrar_username(self, username):
+        return self.filter(canalusuario__usuario__username=username)
     
     
 class CanalManager(models.Manager): 
 
     def get_queryset(self, *args, **kwargs):
         return CanalQuerySet(self.model, using=self.db)
+        
+    def filtrar_ms_por_privado(self, username_a, username_b):
+        return self.get_queryset().solo_dos().filtrar_username(username_a).filtrar_username(username_b)
     
     
 class Canal(ModelBase):

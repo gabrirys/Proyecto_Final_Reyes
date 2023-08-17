@@ -30,7 +30,7 @@ urlpatterns = [
     path('accounts/', include('app_perfiles.urls')),
     path('pages/', include('app_blog.urls')),
     path('contacto/', include('app_contacto.urls')),
-    # path('messages/', include('')),
+    path('messages/', include('app_chat.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),  
 ]
 
