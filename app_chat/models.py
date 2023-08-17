@@ -26,12 +26,15 @@ class CanalUsuario(ModelBase):
     
     
 class CanalQuerySet(models.QuerySet):
-
+    
+    def solo_uno(self):
+        return self.annotate(num_usuarios=Count("usuarios")).filter(num_usuarios=1)
+    
     def solo_dos(self):
-        return self.annotate(num_usuarios= Count("usuarios").filter(num_usuarios=2))
+        return self.annotate(num_usuarios=Count("usuarios")).filter(num_usuarios=2)
     
     
-class CanalModelManager(models.Manager): 
+class CanalManager(models.Manager): 
 
     def get_queryset(self, *args, **kwargs):
         return CanalQuerySet(self.model, using=self.db)
@@ -39,3 +42,4 @@ class CanalModelManager(models.Manager):
     
 class Canal(ModelBase):
     usuarios = models.ManyToManyField(User, blank=True, through=CanalUsuario)
+    objects = CanalManager()
